@@ -2,15 +2,26 @@ using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private int coinCount = 0;
+    [SerializeField] private UIManager uIManager;
+    private int bigCoinValue = 5;
+
+    private void Start()
     {
-        
+        coinCount = 0;
+        uIManager.UpdateCoinText(coinCount);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AddBigCoin()
     {
+        coinCount+=bigCoinValue;
+        uIManager.UpdateCoinText(coinCount);
+    }
+
+    public void AddCoin()
+    {
+        coinCount++;
         
+        uIManager.UpdateCoinText(coinCount);
     }
 }
